@@ -1,6 +1,5 @@
 require "webservices/version"
 require 'rails/generators'
-require "webservices/caching"
 
 module Webservices
 
