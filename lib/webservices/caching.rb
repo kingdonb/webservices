@@ -1,4 +1,4 @@
-class Services::Caching
+class Caching
   def self.smart_fetch(name, options = {}, &blk)
     in_cache = Rails.cache.fetch(name)
     return in_cache if in_cache
