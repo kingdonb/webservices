@@ -1,4 +1,4 @@
-class Services::Threescale
+class Threescale
 
 
   # You only need to instantiate a new Client once and store it as a global variable
