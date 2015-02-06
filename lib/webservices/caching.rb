@@ -1,3 +1,5 @@
+module Websevices
+
 class Caching
   def self.smart_fetch(name, options = {}, &blk)
     in_cache = Rails.cache.fetch(name)
@@ -8,4 +10,6 @@ class Caching
       return val 
     end 
   end
+end
+
 end

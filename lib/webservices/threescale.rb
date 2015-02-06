@@ -1,3 +1,4 @@
+module Webservices
 class Threescale
 
 
@@ -60,5 +61,7 @@ class Threescale
 
   end
 
+
+end
 
 end
