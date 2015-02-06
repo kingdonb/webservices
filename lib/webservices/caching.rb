@@ -1,4 +1,4 @@
-module Websevices
+module Webservices
 
 class Caching
   def self.smart_fetch(name, options = {}, &blk)
