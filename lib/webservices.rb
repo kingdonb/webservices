@@ -29,7 +29,6 @@ module Webservices
             # cache lasts 5 minutes.
             cache_key = params.flatten.join("")
             Caching.smart_fetch( cache_key, :expires_in => 5.minutes ) do
-                #@threescale_client = Services::Threescale.new
                 Threescale.authenticate( params, ENV['THREESCALE_SERVICE_ID'] )  # conditionally change service ID based on authZ vs eforms API calls
             end
         end
