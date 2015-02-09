@@ -1,4 +1,9 @@
+require '3scale_client'
 require "webservices/version"
+require "webservices/Caching"
+require "webservices/threescale"
+require "webservices/engine"
+
 require 'rails/generators'
 
 module Webservices
@@ -29,7 +34,7 @@ module Webservices
             # cache lasts 5 minutes.
             cache_key = params.flatten.join("")
             Webservices::Caching.smart_fetch( cache_key, :expires_in => 5.minutes ) do
-                Threescale.authenticate( params, ENV['THREESCALE_SERVICE_ID'] )  # conditionally change service ID based on authZ vs eforms API calls
+                Webservices::ApiAuthentication.authenticate( params, ENV['THREESCALE_SERVICE_ID'] )  # conditionally change service ID based on authZ vs eforms API calls
             end
         end
         

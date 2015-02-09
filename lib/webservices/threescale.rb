@@ -1,7 +1,6 @@
 module Webservices
 
-class Threescale
-
+class ApiAuthentication
 
   # You only need to instantiate a new Client once and store it as a global variable
   # You should store your provider key in the environment because this key is secret!
@@ -23,7 +22,7 @@ class Threescale
     # controls reporting and RATE LIMITING.
     response = client.authrep(:user_key => params["api_key"],
                                      :service_id => service_id,
-                                     :usage => { :hits => 1, Threescale.metric_name(params) => 1})
+                                     :usage => { :hits => 1, ApiAuthentication.metric_name(params) => 1})
 
     #finish = Time.now
     #Rails.logger.debug( "\n\n3scale elapsed: " + (finish-start).to_s + "\n\n" )
