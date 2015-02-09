@@ -122,7 +122,7 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         
         camelized_file_name = file_name.camelize
         
-        controller_content = "class Api::#{camelized_file_name}Controller < Webservices::ApiController  \ndef show\n\nend\n\ndef update\n\nend\ndef index\n\nend\n\nend"
+        controller_content = "class Api::#{camelized_file_name}Controller < Webservices::ApiController  \ndef show\n\n@info = params\n\nend\n\ndef update\n\nend\n\ndef index\n\n@info = params\n\nend\n\nend"
         model_content = "class Api::#{camelized_file_name} < ActiveRecord::Base\nself.table_name = \"table_name\"\nself.primary_key = \"primary_key\"\nend"
         view_content = "object @info\nattributes *#{camelized_file_name}.column_names"
         helper_content = "module Api::#{camelized_file_name}Helper\n\nend"
