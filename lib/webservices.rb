@@ -29,12 +29,20 @@ module Webservices
         private
         
         def authenticate
-            # authenticate with 3scale, but only if we don't have
-            # a cached copy of this exact kind of request from that api key.
-            # cache lasts 5 minutes.
-            cache_key = params.flatten.join("")
-            Webservices::Caching.smart_fetch( cache_key, :expires_in => 5.minutes ) do
-                Webservices::ApiAuthentication.authenticate( params, ENV['THREESCALE_SERVICE_ID'] )  # conditionally change service ID based on authZ vs eforms API calls
+
+            bypass = false
+            if defined? Webservices::BYPASS_API_AUTHENTICATION
+                bypass = Webservices::BYPASS_API_AUTHENTICATION
+            end
+
+            if !bypass
+                # authenticate with 3scale, but only if we don't have
+                # a cached copy of this exact kind of request from that api key.
+                # cache lasts 5 minutes.
+                cache_key = params.flatten.join("")
+                Webservices::Caching.smart_fetch( cache_key, :expires_in => 5.minutes ) do
+                    Webservices::ApiAuthentication.authenticate( params, ENV['THREESCALE_SERVICE_ID'] )  # conditionally change service ID based on authZ vs eforms API calls
+                end
             end
         end
         
@@ -104,9 +112,16 @@ end
 class WebservicesInitializerGenerator < Rails::Generators::Base
     
     desc "This generator creates an webservices initializer file at config/initializers"
-    
+
     def create_initializer_file
-        create_file "config/initializers/webservices.rb", "# Add initialization content here"
+
+    # improve this to derive the app name programmatically
+    app_name = "Webservices".to_s
+
+    bypass_string = "\n\n" + app_name.to_s + "::BYPASS_API_AUTHENTICATION = true"
+
+        create_file "config/initializers/webservices.rb", "require 'Webservices'\n\n # Add initialization content here" + bypass_string
+
     end
     
 end
