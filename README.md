@@ -22,25 +22,25 @@ https://github.com/bundler/bundler/blob/master/ISSUES.md
 
 ## Usage
 
-Start a new app to test this gem: 
+<h4>Start a new app to test this gem</h4>
 
     $ rails new test_app
 
 Following the installation directions above.
 
-Create the initializer (by default the API Authorization is disabled in the initializer):
+<h4>Create the initializer (by default the API Authorization is disabled in the initializer)</h4>
     
     $ rails generate webservices_initializer
 
 /initializers/webservices.rb
 
-Create a web service scaffold:
+<h4>Create a web service scaffold</h4>
     
     $ rails generate webservice web_service_name
 
 This creates the appropriate files in app/controllersapi, app/models/api and app/views/api.  This is done to keep the web services files separate from the rest of the app.
 
-<h5>Routes</h5>
+<h4>Routes</h4>
 
 For now you have to edit routes.rb file by hand.  Insert the following into the routes.rb and add any new routes into the api namespace after creating it above.  Add any new routes to the :api namespace.
 
@@ -50,7 +50,7 @@ For now you have to edit routes.rb file by hand.  Insert the following into the 
         end
     end
 
-Demo Web Call
+<h4>Demo Web Call</h4>
     
     curl http://127.0.0.1:3000/api/web_service_name/10
 
