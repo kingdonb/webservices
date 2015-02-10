@@ -51,7 +51,9 @@ For now you have to edit routes.rb file by hand.  Insert the following into the 
     end
 
 <h4>Demo Web Call</h4>
-    
+
+Run test_app locally and call the web services via the following call to confirm that route is working. 
+
     curl http://127.0.0.1:3000/api/web_service_name/10
 
 This returns the input parameters from the request to confirm the web service route exists.
