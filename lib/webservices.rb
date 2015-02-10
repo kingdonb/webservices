@@ -16,16 +16,16 @@ module Webservices
         # Call the authenticate method on each request to the API
         before_filter :authenticate
         
-=begin
          # global exception handler.  let no exception bubble up this far!
          rescue_from Exception do |e|
-         global_exception_handler(e)
+            global_exception_handler(e)
          end
-         rescue_from Errors::ApiAuthorizationError, with: :api_key_not_authorized
-         rescue_from Errors::MethodUsageExceeded, with: :method_usage_exceeded
-         rescue_from Errors::NoMetricFound, with: :no_metric_found
-         rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-=end
+    
+        rescue_from Errors::ApiAuthorizationError, with: :api_key_not_authorized
+        rescue_from Errors::MethodUsageExceeded, with: :method_usage_exceeded
+        rescue_from Errors::NoMetricFound, with: :no_metric_found
+        rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
         private
         
         def authenticate
