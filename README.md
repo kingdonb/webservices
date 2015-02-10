@@ -40,7 +40,7 @@ Create a web service scaffold:
 
 This creates the appropriate files in app/controllersapi, app/models/api and app/views/api.  This is done to keep the web services files separate from the rest of the app.
 
-<h3>Routes</h3>
+<h5>Routes</h5>
 
 For now you have to edit routes.rb file by hand.  Insert the following into the routes.rb and add any new routes into the api namespace after creating it above.  Add any new routes to the :api namespace.
 
