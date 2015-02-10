@@ -26,6 +26,8 @@ Start a new app to test this gem:
 
     $ rails new test_app
 
+Following the installation directions above.
+
 Create the initializer (by default the API Authorization is disabled in the initializer):
     
     $ rails generate webservices_initializer
