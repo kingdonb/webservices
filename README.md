@@ -8,10 +8,6 @@ Add this line to your application's Gemfile:
 
     gem 'webservices', :git => 'https://github.com/rdelossa/webservices.git'
 
-If you have any issues using the gem from the repo follow these directions:
-
-https://github.com/bundler/bundler/blob/master/ISSUES.md
-
 And then execute:
 
     $ bundle
@@ -20,23 +16,25 @@ Or install it yourself as:
 
     $ gem install webservices
 
+If you have any issues using the gem from the repo follow these directions:
+
+https://github.com/bundler/bundler/blob/master/ISSUES.md
+
 ## Usage
 
-Best to test in a clean project via: 
+Start a new app to test this gem: 
+
     rails new test_app
 
-1. Add to GemFile:
-gem 'webservices', :git => 'https://github.com/rdelossa/webservices.git'
-
-2. Create the initializer (by default the API Authorization is disabled in the initializer):
+1. Create the initializer (by default the API Authorization is disabled in the initializer):
 rails generate webservices_initializer
 /initializers/webservices.rb
 
-3. Create a web service scaffold:
+2. Create a web service scaffold:
 rails generate webservice web_service_name
 (controllers/models/views...)/api/...
 
-4. Routes
+3. Routes
 For now you have to edit routes.rb file by hand.  Insert the following into the routes.rb and add any new routes into the api namespace after creating it above.  Add any new routes to the :api namespace.
 
     scope '/', :defaults => { :format => 'json' } do
@@ -45,7 +43,7 @@ For now you have to edit routes.rb file by hand.  Insert the following into the 
         end
     end
 
-5. Demo Web Call
+4. Demo Web Call
 curl http://127.0.0.1:3000/api/web_service_name/10
 This returns the input parameters from the request to confirm the web service route exists.
 
