@@ -47,7 +47,7 @@ This creates the appropriate files in app/controllers/api, app/helpers/api, app/
 
 <h4>Routes</h4>
 
-For now you have to edit routes.rb file by hand.  Insert the following into the routes.rb and add any new routes into the api namespace after creating it above.  Add any new routes to the :api namespace.
+For now you have to edit routes.rb file by hand.  Insert the following into the routes.rb.  Add any new routes to the :api namespace.
 
     scope '/', :defaults => { :format => 'json' } do
         namespace :api do
