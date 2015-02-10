@@ -24,17 +24,17 @@ https://github.com/bundler/bundler/blob/master/ISSUES.md
 
 Start a new app to test this gem: 
 
-    rails new test_app
+    $ rails new test_app
 
 Create the initializer (by default the API Authorization is disabled in the initializer):
     
-    rails generate webservices_initializer
+    $ rails generate webservices_initializer
 
 /initializers/webservices.rb
 
 Create a web service scaffold:
     
-    rails generate webservice web_service_name
+    $ rails generate webservice web_service_name
 
 This creates the appropriate files in app/controllersapi, app/models/api and app/views/api.  This is done to keep you the web services files separate from the rest of the app.
 
