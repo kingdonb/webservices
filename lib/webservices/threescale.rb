@@ -16,7 +16,7 @@ class ApiAuthentication
   def self.authenticate( params, service_id )
     #start = Time.now
     
-    client = ThreeScale::Client.new(:provider_key => ENV['THREESCALE_PROVIDER_KEY'])
+    client = ThreeScale::Client.new(:provider_key => Webservices::PROVIDER_KEY)
     
     # usage metrics are reported to 3scale.
     # controls reporting and RATE LIMITING.
