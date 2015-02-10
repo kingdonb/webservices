@@ -26,9 +26,14 @@ https://github.com/bundler/bundler/blob/master/ISSUES.md
 
     $ rails new test_app
 
+Move into the newly created app folder
+
+    $ cd test_app
+
 Following the installation directions above.
 
-<h4>Create the initializer (by default the API Authorization is disabled in the initializer)</h4>
+<h4>Create the initializer</h4>
+By default the API Authorization is disabled in the initializer
     
     $ rails generate webservices_initializer
 
