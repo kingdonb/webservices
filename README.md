@@ -38,12 +38,11 @@ Create a web service scaffold:
     
     $ rails generate webservice web_service_name
 
-This creates the appropriate files in app/controllersapi, app/models/api and app/views/api.  This is done to keep you the web services files separate from the rest of the app.
+This creates the appropriate files in app/controllersapi, app/models/api and app/views/api.  This is done to keep the web services files separate from the rest of the app.
 
-Routes
+<h3>Routes</h3>
 
 For now you have to edit routes.rb file by hand.  Insert the following into the routes.rb and add any new routes into the api namespace after creating it above.  Add any new routes to the :api namespace.
-
 
     scope '/', :defaults => { :format => 'json' } do
         namespace :api do
