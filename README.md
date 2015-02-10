@@ -32,7 +32,7 @@ Following the installation directions above.
     
     $ rails generate webservices_initializer
 
-Edit /initializers/webservices.rb to enable/disable API Authorization and assigned the proper service_id and provider key information.
+Edit /initializers/webservices.rb to enable/disable API Authorization and assign the proper service_id and provider key information.
 
 <h4>Create a web service scaffold</h4>
     
