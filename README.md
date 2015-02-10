@@ -43,7 +43,7 @@ Edit /initializers/webservices.rb to enable/disable API Authorization and assign
     
     $ rails generate webservice web_service_name
 
-This creates the appropriate files in app/controllersapi, app/models/api and app/views/api.  This is done to keep the web services files separate from the rest of the app.
+This creates the appropriate files in app/controllers/api, app/models/api and app/views/api.  This is done to keep the web services files separate from the rest of the app.
 
 <h4>Routes</h4>
 
