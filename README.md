@@ -33,7 +33,7 @@ Move into the newly created app folder
 Following the installation directions above.
 
 <h4>Create the initializer</h4>
-By default the API Authorization is disabled in the initializer
+By default the API Authorization is disabled in the initializer.
     
     $ rails generate webservices_initializer
 
