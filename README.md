@@ -18,11 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-Best to test in a clean project via:
-
-rails new test_app  
-
-If you have any issues using the gem from the repo follow these directions:
+I currently have it stored in github (soon ruby gems).  Best to test in a clean project via "rails new test_app".  If you have any issues using the gem from the repo follow these directions:
 
 https://github.com/bundler/bundler/blob/master/ISSUES.md
 
@@ -38,25 +34,24 @@ rails generate webservice web_service_name
 (controllers/models/views...)/api/...
 
 4. Routes
-For now you have to edit routes.rb file by hand.  Insert the following into the routes.rb and add any new routes into the api namespace after creating it above.
+For now you have to edit routes.rb file by hand.  Insert the following into the routes.rb and add any new routes into the api namespace after creating it above.  Add any new routes to the :api namespace.
 
-# webservices
 scope '/', :defaults => { :format => 'json' } do
 
-namespace :api do
+    namespace :api do
 
-# web service route
-get 'web_service_name/:id', to: 'web_service_name#show', as: :get_web_service_name
+        get 'web_service_name/:id', to: 'web_service_name#show', as: :get_web_service_name
 
-end
+    end
+
 end
 
 5. Demo Web Call
 curl http://127.0.0.1:3000/api/web_service_name/10
 This returns the input parameters from the request to confirm the web service route exists.
 
-Thanks,
-Richard
+
+## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/webservices/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
