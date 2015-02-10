@@ -36,7 +36,7 @@ Create a web service scaffold:
     
     rails generate webservice web_service_name
 
-(controllers/models/views...)/api/...
+This creates the appropriate files in app/controllersapi, app/models/api and app/views/api.  This is done to keep you the web services files separate from the rest of the app.
 
 Routes
 
