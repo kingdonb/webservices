@@ -27,15 +27,21 @@ Start a new app to test this gem:
     rails new test_app
 
 1. Create the initializer (by default the API Authorization is disabled in the initializer):
-rails generate webservices_initializer
+    
+    rails generate webservices_initializer
+
 /initializers/webservices.rb
 
 2. Create a web service scaffold:
-rails generate webservice web_service_name
+    
+    rails generate webservice web_service_name
+
 (controllers/models/views...)/api/...
 
 3. Routes
+
 For now you have to edit routes.rb file by hand.  Insert the following into the routes.rb and add any new routes into the api namespace after creating it above.  Add any new routes to the :api namespace.
+
 
     scope '/', :defaults => { :format => 'json' } do
         namespace :api do
@@ -44,7 +50,9 @@ For now you have to edit routes.rb file by hand.  Insert the following into the 
     end
 
 4. Demo Web Call
-curl http://127.0.0.1:3000/api/web_service_name/10
+    
+    curl http://127.0.0.1:3000/api/web_service_name/10
+
 This returns the input parameters from the request to confirm the web service route exists.
 
 
