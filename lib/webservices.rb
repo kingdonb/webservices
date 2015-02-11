@@ -4,6 +4,11 @@ require "webservices/Caching"
 require "webservices/threescale"
 require "webservices/engine"
 
+# error classes
+require "webservices/api_authorization_error"
+require "webservices/method_usage_exceeded"
+require "webservices/no_metric_found"
+
 require 'rails/generators'
 
 module Webservices
@@ -21,10 +26,10 @@ module Webservices
         global_exception_handler(e)
      end
     
-     rescue_from Errors::ApiAuthorizationError, with: :api_key_not_authorized
-     rescue_from Errors::MethodUsageExceeded, with: :method_usage_exceeded
-     rescue_from Errors::NoMetricFound, with: :no_metric_found
-     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+    rescue_from Webservices::Errors::ApiAuthorizationError, with: :api_key_not_authorized
+    rescue_from Webservices::Errors::MethodUsageExceeded, with: :method_usage_exceeded
+    rescue_from Webservices::Errors::NoMetricFound, with: :no_metric_found
+    #rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
         private
         
