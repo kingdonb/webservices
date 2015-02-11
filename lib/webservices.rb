@@ -20,7 +20,7 @@ module Webservices
         
         # Call the authenticate method on each request to the API
         before_filter :authenticate
-        
+
      # global exception handler.  let no exception bubble up this far!
      rescue_from Exception do |e|
         global_exception_handler(e)
@@ -31,7 +31,7 @@ module Webservices
     rescue_from Webservices::Errors::NoMetricFound, with: :no_metric_found
     #rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-        private
+    private
         
         def authenticate
 
