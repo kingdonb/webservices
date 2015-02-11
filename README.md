@@ -65,6 +65,8 @@ This returns the input parameters from the request to confirm the web service ro
 
 ## Contributing
 
+The basis of this gem was code created by Brandon Rich.
+
 1. Fork it ( http://github.com/<my-github-username>/webservices/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
