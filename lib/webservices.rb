@@ -1,6 +1,6 @@
 require '3scale_client'
 require "webservices/version"
-require "webservices/Caching"
+require "webservices/caching"
 require "webservices/threescale"
 require "webservices/engine"
 
