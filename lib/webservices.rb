@@ -127,7 +127,7 @@ class WebservicesInitializerGenerator < Rails::Generators::Base
     parameters_string = parameters_string + "\n" + app_name.to_s + "::SERVICE_ID = ENV['THREESCALE_SERVICE_ID']"
     parameters_string = parameters_string + "\n" + app_name.to_s + "::PROVIDER_KEY = ENV['THREESCALE_PROVIDER_KEY']"
 
-    create_file "config/initializers/webservices.rb", "require 'Webservices'\n\n # Add initialization content here" + parameters_string
+    create_file "config/initializers/webservices.rb", "require 'webservices'\n\n # Add initialization content here" + parameters_string
 
     end
     
