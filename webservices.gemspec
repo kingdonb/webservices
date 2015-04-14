@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'webservices/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Webservices"
+  spec.name          = %q{webservices}
   spec.version       = Webservices::VERSION
   spec.authors       = ["Richard de los Santos"]
   spec.email         = ["rdelossa@nd.edu"]
