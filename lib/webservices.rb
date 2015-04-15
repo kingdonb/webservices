@@ -118,7 +118,8 @@ module Webservices
         
         def initial_path_segments
             @initial_path_segments ||= begin
-                paths.collect {|path| match_initial_path_segment(path)}.compact.uniq
+                paths.select {|path| match_initial_path_segment(path) == 'api'}.compact.uniq
+                #paths.collect {|path| match_initial_path_segment(path)}.compact.uniq
             end
         end
         
