@@ -71,8 +71,7 @@ This class method will present all the available api calls*:
 
 This can be used to create a web service call that shows all the available routes.
 
-## *
-A modified version of http://coryforsyth.com/2013/06/02/programmatically-list-routespaths-from-inside-your-rails-app/
+* A modified version of http://coryforsyth.com/2013/06/02/programmatically-list-routespaths-from-inside-your-rails-app/
 
 ## Contributing
 
