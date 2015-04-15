@@ -63,6 +63,17 @@ Run test_app locally and call the web services via the following call to confirm
 
 This returns the input parameters from the request to confirm the web service route exists.
 
+## Bonus
+
+This class method will present all the available api calls*:
+
+    Webservices::RouteRecognizer.new.api_routes
+
+This can be used to create a web service call that shows all the available routes.
+
+## *
+http://coryforsyth.com/2013/06/02/programmatically-list-routespaths-from-inside-your-rails-app/
+
 ## Contributing
 
 The basis of this gem was code created by Brandon Rich.

@@ -116,7 +116,7 @@ module Webservices
             @paths = routes.collect {|r| r.path.spec.to_s }
         end
         
-        def initial_path_segments
+        def api_routes
             @initial_path_segments ||= begin
                 paths.select {|path| match_initial_path_segment(path) == 'api'}.compact.uniq
                 #paths.collect {|path| match_initial_path_segment(path)}.compact.uniq
