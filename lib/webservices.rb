@@ -203,7 +203,7 @@ class WebserviceGenerator < Rails::Generators::NamedBase
     def create_initializer_file
         
         camelized_file_name = file_name.camelize
-        
+=begin
         default_controller_method_content = "@info = params\n\nrespond_to do |format|\nformat.json { render :json => @info }\n\nend"
         
         controller_content = "class Api::#{camelized_file_name}Controller < Webservices::ApiController  \ndef show\n\n" + default_controller_method_content + "\n\nend\n\ndef update\n\n" + default_controller_method_content + "\n\nend\n\ndef index\n\n"+ default_controller_method_content + "\n\nend\n\nend"
@@ -211,14 +211,32 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         model_content = "class Api::#{camelized_file_name} < ActiveRecord::Base\nself.table_name = \"table_name\"\nself.primary_key = \"primary_key\"\nend"
         view_content = "object @info\nattributes *#{camelized_file_name}.column_names"
         helper_content = "module Api::#{camelized_file_name}Helper\n\nend"
-        
+=end
+
+        WebservicesInitializerGenerator.source_root( File.expand_path(File.dirname(__FILE__)) + '/static_files')
+
+        controller_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/controller.rb' #the '__FILE__' consists of two underscores
+        model_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/model.rb' #the '__FILE__' consists of two underscores
+        helper_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/webservices.rb' #the '__FILE__' consists of two underscores
+        show_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/show.rb' #the '__FILE__' consists of two underscores
+        index_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/index.rb' #the '__FILE__' consists of two underscores
+        update_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/update.rb' #the '__FILE__' consists of two underscores
+
+        copy_file "app/controllers/api/#{file_name}_controller.rb", controller_content
+        copy_file "app/models/api/#{file_name}.rb", model_content
+        copy_file "app/helpers/api/#{file_name}_helper.rb", helper_content
+        copy_file "app/views/api/#{file_name}/show.rabl", view_content
+        copy_file "app/views/api/#{file_name}/index.rabl", view_content
+        copy_file "app/views/api/#{file_name}/update.rabl", view_content
+
+=begin
         create_file "app/controllers/api/#{file_name}_controller.rb", controller_content
         create_file "app/models/api/#{file_name}.rb", model_content
         create_file "app/helpers/api/#{file_name}_helper.rb", helper_content
         create_file "app/views/api/#{file_name}/show.rabl", view_content
         create_file "app/views/api/#{file_name}/index.rabl", view_content
         create_file "app/views/api/#{file_name}/update.rabl", view_content
-
+=end
         # modify the routes.rb to include this new route
 
     end
