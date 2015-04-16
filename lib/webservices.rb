@@ -203,7 +203,7 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         routes_content_path = File.expand_path(File.dirname(__FILE__)) + '/static_files/routes.rb' #the '__FILE__' consists of two underscores
 
         file = File.open(routes_content_path, "rb")
-        routes_contents = file.read
+        routes_contents = gsub file.read, 'ROUTE_NAME', file_name
         
         puts routes_contents
 
