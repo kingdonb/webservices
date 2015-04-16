@@ -197,7 +197,7 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         WebserviceGenerator.source_root( File.expand_path(File.dirname(__FILE__)) + '/static_files/' )
 
         copy_file controller_content, "app/controllers/api/#{file_name}_controller.rb"
-        copy_file model_content"app/models/api/#{file_name}.rb"
+        copy_file model_content, "app/models/api/#{file_name}.rb"
         #copy_file helper_content, "app/helpers/api/#{file_name}_helper.rb"
         copy_file show_content, "app/views/api/#{file_name}/show.rabl"
         copy_file index_content, "app/views/api/#{file_name}/index.rabl"
