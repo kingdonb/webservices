@@ -194,7 +194,7 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         index_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/index.rabl' #the '__FILE__' consists of two underscores
         update_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/update.rabl' #the '__FILE__' consists of two underscores
 
-        WebservicesInitializerGenerator.source_root( controller_content )
+        WebservicesInitializerGenerator.source_root( File.expand_path(File.dirname(__FILE__)) + '/static_files/' )
 
         copy_file controller_content, "app/controllers/api/#{file_name}_controller.rb"
         copy_file model_content"app/models/api/#{file_name}.rb"
