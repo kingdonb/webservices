@@ -194,11 +194,11 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         copy_file index_content, "app/views/api/#{file_name}/index.rabl"
         copy_file update_content, "app/views/api/#{file_name}/update.rabl"
         
-        gsub_file controller_content, /^gem\s+["']CLASSNAME["'].*$/, camelized_file_name
-        gsub_file model_content, /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
-        gsub_file show_content, /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
-        gsub_file index_content, /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
-        gsub_file update_content, /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
+        gsub_file "app/controllers/api/#{file_name}_controller.rb", /^gem\s+["']CLASSNAME["'].*$/, camelized_file_name
+        gsub_file "app/models/api/#{file_name}.rb", /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
+        gsub_file "app/views/api/#{file_name}/show.rabl", /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
+        gsub_file "app/views/api/#{file_name}/index.rabl", /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
+        gsub_file "app/views/api/#{file_name}/update.rabl", /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
 
         # modify the routes.rb to include this new route
         # http://technology.stitchfix.com/blog/2014/01/06/rails-app-templates/
