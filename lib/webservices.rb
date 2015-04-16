@@ -194,7 +194,7 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         copy_file index_content, "app/views/api/#{file_name}/index.rabl"
         copy_file update_content, "app/views/api/#{file_name}/update.rabl"
         
-        gsub_file "app/controllers/api/#{file_name}_controller.rb", 'CLASSNAME, camelized_file_name
+        gsub_file "app/controllers/api/#{file_name}_controller.rb", 'CLASSNAME', camelized_file_name
         gsub_file "app/models/api/#{file_name}.rb", 'MODELNAME', camelized_file_name
         gsub_file "app/views/api/#{file_name}/show.rabl", 'MODELNAME', camelized_file_name
         gsub_file "app/views/api/#{file_name}/index.rabl", 'MODELNAME', camelized_file_name
