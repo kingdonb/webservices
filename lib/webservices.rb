@@ -177,15 +177,6 @@ class WebserviceGenerator < Rails::Generators::NamedBase
     def create_initializer_file
         
         camelized_file_name = file_name.camelize
-=begin
-        default_controller_method_content = "@info = params\n\nrespond_to do |format|\nformat.json { render :json => @info }\n\nend"
-        
-        controller_content = "class Api::#{camelized_file_name}Controller < Webservices::ApiController  \ndef show\n\n" + default_controller_method_content + "\n\nend\n\ndef update\n\n" + default_controller_method_content + "\n\nend\n\ndef index\n\n"+ default_controller_method_content + "\n\nend\n\nend"
-
-        model_content = "class Api::#{camelized_file_name} < ActiveRecord::Base\nself.table_name = \"table_name\"\nself.primary_key = \"primary_key\"\nend"
-        view_content = "object @info\nattributes *#{camelized_file_name}.column_names"
-        helper_content = "module Api::#{camelized_file_name}Helper\n\nend"
-=end
 
         controller_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/controller.rb' #the '__FILE__' consists of two underscores
         model_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/model.rb' #the '__FILE__' consists of two underscores
@@ -203,15 +194,16 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         copy_file index_content, "app/views/api/#{file_name}/index.rabl"
         copy_file update_content, "app/views/api/#{file_name}/update.rabl"
         
-=begin
-        create_file "app/controllers/api/#{file_name}_controller.rb", controller_content
-        create_file "app/models/api/#{file_name}.rb", model_content
-        create_file "app/helpers/api/#{file_name}_helper.rb", helper_content
-        create_file "app/views/api/#{file_name}/show.rabl", view_content
-        create_file "app/views/api/#{file_name}/index.rabl", view_content
-        create_file "app/views/api/#{file_name}/update.rabl", view_content
-=end
+        gsub_file controller_content, /^gem\s+["']CLASSNAME["'].*$/, camelized_file_name
+        gsub_file model_content, /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
+        gsub_file show_content, /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
+        gsub_file index_content, /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
+        gsub_file update_content, /^gem\s+["']MODELNAME["'].*$/, camelized_file_name
+
         # modify the routes.rb to include this new route
+        # http://technology.stitchfix.com/blog/2014/01/06/rails-app-templates/
+        
+        
 
     end
 

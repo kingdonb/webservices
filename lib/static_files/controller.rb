@@ -1,4 +1,4 @@
-class Api::ListRoutesController < Webservices::ApiController
+class Api::CLASSNAMEController < Webservices::ApiController
     
     def show
 

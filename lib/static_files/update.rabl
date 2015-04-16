@@ -1,2 +1,2 @@
 object @info
-attributes *Model.column_names
+attributes *MODELNAME.column_names
