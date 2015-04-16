@@ -144,32 +144,6 @@ module Webservices
 end
 
 class WebservicesInitializerGenerator < Rails::Generators::Base
-=begin
-    desc "This generator creates an webservices initializer file at config/initializers"
-
-    def create_initializer_file
-
-    # improve this to derive the app name programmatically
-    app_name = "Webservices".to_s
-
-    parameters_string = "\n\n"
-
-
-    parameters_string = parameters_string + "\n" + app_name.to_s + "::SERVICE_ID = ENV['THREESCALE_SERVICE_ID']"
-    parameters_string = parameters_string + "\n" + app_name.to_s + "::PROVIDER_KEY = ENV['THREESCALE_PROVIDER_KEY']"
-    
-    parameters_string = parameters_string + "\n\nif Rails.env.development?"
-    parameters_string = parameters_string + "\n" + app_name.to_s + "::BYPASS_API_AUTHENTICATION = true"
-    parameters_string = parameters_string + "\n\elsif Rails.env.test?"
-    parameters_string = parameters_string + "\n" + app_name.to_s + "::BYPASS_API_AUTHENTICATION = false"
-    parameters_string = parameters_string + "\nelse"
-    parameters_string = parameters_string + "\n\n" + app_name.to_s + "::BYPASS_API_AUTHENTICATION = false"
-    parameters_string = parameters_string + "\nend"
-    
-    create_file "config/initializers/webservices.rb", "require 'webservices'\n\n # Add initialization content here" + parameters_string
-
-    end
-=end
 
     desc "This generator creates a webservices initializer file at config/initializers"
     
@@ -228,7 +202,7 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         copy_file show_content, "app/views/api/#{file_name}/show.rabl"
         copy_file index_content, "app/views/api/#{file_name}/index.rabl"
         copy_file update_content, "app/views/api/#{file_name}/update.rabl"
-
+        
 =begin
         create_file "app/controllers/api/#{file_name}_controller.rb", controller_content
         create_file "app/models/api/#{file_name}.rb", model_content
