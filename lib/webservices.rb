@@ -144,7 +144,7 @@ module Webservices
 end
 
 class WebservicesInitializerGenerator < Rails::Generators::Base
-    
+=begin
     desc "This generator creates an webservices initializer file at config/initializers"
 
     def create_initializer_file
@@ -169,7 +169,20 @@ class WebservicesInitializerGenerator < Rails::Generators::Base
     create_file "config/initializers/webservices.rb", "require 'webservices'\n\n # Add initialization content here" + parameters_string
 
     end
-    
+=end
+
+    desc "This generator creates a webservices initializer file at config/initializers"
+
+    def create_initializer_file
+        
+        static_files_path = File.expand_path(File.dirname(__FILE__)) + '/static_files/webservices.rb' #the '__FILE__' consists of two underscores
+        
+        app_path = Dir.pwd+'/config'
+        
+        FileUtils.copy_entry(static_files_path, app_path)
+        
+    end
+
 end
 
 class WebserviceGenerator < Rails::Generators::NamedBase
