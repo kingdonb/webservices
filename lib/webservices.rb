@@ -213,14 +213,14 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         helper_content = "module Api::#{camelized_file_name}Helper\n\nend"
 =end
 
-        WebservicesInitializerGenerator.source_root( File.expand_path(File.dirname(__FILE__)) + '/static_files')
-
         controller_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/controller.rb' #the '__FILE__' consists of two underscores
         model_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/model.rb' #the '__FILE__' consists of two underscores
         helper_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/webservices.rb' #the '__FILE__' consists of two underscores
         show_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/show.rabl' #the '__FILE__' consists of two underscores
         index_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/index.rabl' #the '__FILE__' consists of two underscores
         update_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/update.rabl' #the '__FILE__' consists of two underscores
+
+        WebservicesInitializerGenerator.source_root( controller_content )
 
         copy_file controller_content, "app/controllers/api/#{file_name}_controller.rb"
         copy_file model_content"app/models/api/#{file_name}.rb"
