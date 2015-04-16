@@ -218,16 +218,16 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         controller_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/controller.rb' #the '__FILE__' consists of two underscores
         model_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/model.rb' #the '__FILE__' consists of two underscores
         helper_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/webservices.rb' #the '__FILE__' consists of two underscores
-        show_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/show.rb' #the '__FILE__' consists of two underscores
-        index_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/index.rb' #the '__FILE__' consists of two underscores
-        update_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/update.rb' #the '__FILE__' consists of two underscores
+        show_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/show.rabl' #the '__FILE__' consists of two underscores
+        index_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/index.rabl' #the '__FILE__' consists of two underscores
+        update_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/update.rabl' #the '__FILE__' consists of two underscores
 
-        copy_file "app/controllers/api/#{file_name}_controller.rb", controller_content
-        copy_file "app/models/api/#{file_name}.rb", model_content
-        copy_file "app/helpers/api/#{file_name}_helper.rb", helper_content
-        copy_file "app/views/api/#{file_name}/show.rabl", view_content
-        copy_file "app/views/api/#{file_name}/index.rabl", view_content
-        copy_file "app/views/api/#{file_name}/update.rabl", view_content
+        copy_file controller_content, "app/controllers/api/#{file_name}_controller.rb"
+        copy_file model_content"app/models/api/#{file_name}.rb"
+        #copy_file helper_content, "app/helpers/api/#{file_name}_helper.rb"
+        copy_file show_content, "app/views/api/#{file_name}/show.rabl"
+        copy_file index_content, "app/views/api/#{file_name}/index.rabl"
+        copy_file update_content, "app/views/api/#{file_name}/update.rabl"
 
 =begin
         create_file "app/controllers/api/#{file_name}_controller.rb", controller_content
