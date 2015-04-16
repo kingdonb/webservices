@@ -47,7 +47,7 @@ This creates the appropriate files in app/controllers/api, app/helpers/api, app/
 
 <h4>Routes</h4>
 
-The following will inserted into /config/routes.rb for each new api added.
+The following will be inserted into /config/routes.rb for each new api added.
 
     scope '/', :defaults => { :format => 'json' } do
         namespace :api do
