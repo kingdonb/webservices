@@ -203,10 +203,8 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         routes_content_path = File.expand_path(File.dirname(__FILE__)) + '/static_files/routes.rb' #the '__FILE__' consists of two underscores
 
         file = File.open(routes_content_path, "rb")
-        routes_contents = gsub file.read, 'ROUTE_NAME', file_name
+        routes_contents = gsub file.read, 'ROUTE_NAME', "#{file_name}"
         
-        puts routes_contents
-
         # modify the routes.rb to include this new route
         # http://technology.stitchfix.com/blog/2014/01/06/rails-app-templates/
         
