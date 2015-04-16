@@ -184,9 +184,9 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         show_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/show.rabl' #the '__FILE__' consists of two underscores
         index_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/index.rabl' #the '__FILE__' consists of two underscores
         update_content = File.expand_path(File.dirname(__FILE__)) + '/static_files/update.rabl' #the '__FILE__' consists of two underscores
-
+        
         WebserviceGenerator.source_root( File.expand_path(File.dirname(__FILE__)) + '/static_files/' )
-
+        
         copy_file controller_content, "app/controllers/api/#{file_name}_controller.rb"
         copy_file model_content, "app/models/api/#{file_name}.rb"
         #copy_file helper_content, "app/helpers/api/#{file_name}_helper.rb"
@@ -200,10 +200,15 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         gsub_file "app/views/api/#{file_name}/index.rabl", 'MODELNAME', camelized_file_name
         gsub_file "app/views/api/#{file_name}/update.rabl", 'MODELNAME', camelized_file_name
 
+        routes_content_path = File.expand_path(File.dirname(__FILE__)) + '/static_files/routes.rb' #the '__FILE__' consists of two underscores
+
+        file = File.open("routes_content", "rb")
+        routes_contents = file.read
+
         # modify the routes.rb to include this new route
         # http://technology.stitchfix.com/blog/2014/01/06/rails-app-templates/
         
-        
+        insert_into_file 'config/routes.rb', routes_contents#, after: "source 'https://rubygems.org'\n"
 
     end
 
