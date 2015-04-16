@@ -210,7 +210,7 @@ class WebserviceGenerator < Rails::Generators::NamedBase
         # modify the routes.rb to include this new route
         # http://technology.stitchfix.com/blog/2014/01/06/rails-app-templates/
         
-        insert_into_file 'config/routes.rb', routes_contents#, after: "source 'https://rubygems.org'\n"
+        insert_into_file 'config/routes.rb', routes_contents, :before => /^end/
 
     end
 
