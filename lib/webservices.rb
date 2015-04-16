@@ -177,7 +177,7 @@ class WebservicesInitializerGenerator < Rails::Generators::Base
         
         static_files_path = File.expand_path(File.dirname(__FILE__)) + '/static_files/webservices.rb' #the '__FILE__' consists of two underscores
         
-        app_path = Dir.pwd+'/config'
+        app_path = Dir.pwd+'/config/initializers/webservices.rb'
         
         FileUtils.copy_entry(static_files_path, app_path)
         
