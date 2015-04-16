@@ -179,7 +179,9 @@ class WebservicesInitializerGenerator < Rails::Generators::Base
         
         app_path = Dir.pwd+'/config/initializers/webservices.rb'
         
-        FileUtils.copy_entry(static_files_path, app_path)
+        copy_file app_path, static_files_path
+        
+            #        FileUtils.copy_entry(static_files_path, app_path)
         
     end
 
