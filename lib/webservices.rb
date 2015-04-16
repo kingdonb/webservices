@@ -152,10 +152,20 @@ class WebservicesInitializerGenerator < Rails::Generators::Base
     # improve this to derive the app name programmatically
     app_name = "Webservices".to_s
 
-    parameters_string = "\n\n" + app_name.to_s + "::BYPASS_API_AUTHENTICATION = true"
+    parameters_string = "\n\n"
+
+
     parameters_string = parameters_string + "\n" + app_name.to_s + "::SERVICE_ID = ENV['THREESCALE_SERVICE_ID']"
     parameters_string = parameters_string + "\n" + app_name.to_s + "::PROVIDER_KEY = ENV['THREESCALE_PROVIDER_KEY']"
-
+    
+    parameters_string = parameters_string + "\n\nif Rails.env.development?"
+    parameters_string = parameters_string + "\n" + app_name.to_s + "::BYPASS_API_AUTHENTICATION = true"
+    parameters_string = parameters_string + "\n\elsif Rails.env.test?"
+    parameters_string = parameters_string + "\n" + app_name.to_s + "::BYPASS_API_AUTHENTICATION = false"
+    parameters_string = parameters_string + "\nelse"
+    parameters_string = parameters_string + "\n\n" + app_name.to_s + "::BYPASS_API_AUTHENTICATION = false"
+    parameters_string = parameters_string + "\nend"
+    
     create_file "config/initializers/webservices.rb", "require 'webservices'\n\n # Add initialization content here" + parameters_string
 
     end
