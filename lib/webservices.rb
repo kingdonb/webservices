@@ -29,7 +29,7 @@ module Webservices
     rescue_from Webservices::Errors::ApiAuthorizationError, with: :api_key_not_authorized
     rescue_from Webservices::Errors::MethodUsageExceeded, with: :method_usage_exceeded
     rescue_from Webservices::Errors::NoMetricFound, with: :no_metric_found
-    #rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     private
         
