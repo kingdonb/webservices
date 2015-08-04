@@ -8,16 +8,20 @@ module Webservices
             
             data = model.all
             
-            if ( params.has_key?("app_name") )
-                raise TypeError unless Services::Validation.isValidParameter('key', params['app_name'], '^[A-Za-z0-9\s\_]*$')
-                
-                app_id = Application.where('name' => params["app_name"].to_s).first.id.to_i
-                data = data.where('app_id' => app_id)
-                
-                else
-                raise ArgumentError
-            end
+            if model.attribute_names.include?('app_id') # check if reference table has app_id in it.
             
+                if ( params.has_key?("app_name") )
+                    raise TypeError unless Services::Validation.isValidParameter('key', params['app_name'], '^[A-Za-z0-9\s\_]*$')
+                    
+                    app_id = Application.where('name' => params["app_name"].to_s).first.id.to_i
+                    data = data.where('app_id' => app_id)
+                    
+                else
+                    raise ArgumentError
+                end
+    
+            end
+
             if ( params.has_key?("id") )
                 
                 raise TypeError unless Services::Validation.isValidParameter('key', params["id"])
