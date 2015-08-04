@@ -60,7 +60,7 @@ The following will be inserted into /config/routes.rb for each new api added.
 
 To get an index listing of a specific model use the following command:
 
-    mode_index_object = Webservices::ModelAccess.model_index(MODEL_NAME, params)
+    model_index_object = Webservices::ModelAccess.model_index(MODEL_NAME, params)
 
 Where params could looke like param 
 
@@ -71,6 +71,10 @@ or
     {app_name = APP_NAME, 'id' => 123456}.
 
 For a specific record.
+
+The returned data will look like:
+
+    {"data"=>[], "curr_page"=>CURR_PAGE, "num_per_page"=>NUM_PER_PAGE, "total_records"=>TOTAL_RECORDS} 
 
 NOTE: The pagination information is optional.
 
