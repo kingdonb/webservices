@@ -3,6 +3,8 @@ require "webservices/version"
 require "webservices/caching"
 require "webservices/threescale"
 require "webservices/engine"
+require "webservices/validation"
+require "webservices/model_access"
 
 # error classes
 require "webservices/api_authorization_error"
