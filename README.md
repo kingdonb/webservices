@@ -62,7 +62,7 @@ To get an index listing of a specific model use the following command:
 
     model_index_object = Webservices::ModelAccess.model_index(MODEL_NAME, params)
 
-Where params could looke like param 
+Where params could looke like: 
 
     {app_name = APP_NAME, 'curr_page' => 1, 'num_per_page' => 5}
 
