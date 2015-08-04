@@ -55,6 +55,25 @@ The following will be inserted into /config/routes.rb for each new api added.
         end
     end
 
+
+<h4>Model Access</h4>
+
+To get an index listing of a specific model use the following command:
+
+    mode_index_object = Webservices::ModelAccess.model_index(MODEL_NAME, params)
+
+Where params could looke like param 
+
+    {app_name = APP_NAME, 'curr_page' => 1, 'num_per_page' => 5}
+
+or
+
+    {app_name = APP_NAME, 'id' => 123456}.
+
+For a specific record.
+
+NOTE: The pagination information is optional.
+
 <h4>Demo Web Call</h4>
 
 Run test_app locally and call the web services via the following call to confirm that the route is working. 
