@@ -2,7 +2,7 @@ module Webservices
 
     class ModelAccess
         
-        def model_index(model, params)
+        def self.model_index(model, params)
             
             output = {'data' => [], 'curr_page' => 1, 'num_per_page' => 5, 'total_pages' => 1}
             
