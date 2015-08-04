@@ -213,3 +213,5 @@ class WebserviceGenerator < Rails::Generators::NamedBase
     end
 
 end
+
+
