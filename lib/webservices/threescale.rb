@@ -20,7 +20,8 @@ class ApiAuthentication
     
     # usage metrics are reported to 3scale.
     # controls reporting and RATE LIMITING.
-    response = create_client.authrep(:user_key => params["api_key"], :service_id => @threescale_service_id, :usage => { :hits => 1 })
+    #    response = create_client.authrep(:user_key => params["api_key"], :service_id => @threescale_service_id, :usage => { :hits => 1 })
+    response = client.authrep(:user_key => params["api_key"], :service_id => service_id, :usage => { :hits => 1, ApiAuthentication.metric_name(params) => 1})
 
     #finish = Time.now
     #Rails.logger.debug( "\n\n3scale elapsed: " + (finish-start).to_s + "\n\n" )
