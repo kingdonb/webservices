@@ -53,7 +53,6 @@ module Webservices
             end
         end
         
-        
         # EXCEPTION HANDLERS CAN PROBABLY GO ELSEWHERE....
         def global_exception_handler( e )
             if ( Rails.env == 'development' )
