@@ -21,7 +21,7 @@ module Webservices
         #skip_before_action :verify_authenticity_token
         
         # Call the authenticate method on each request to the API
-        before_filter :authenticate
+        before_action :authenticate
 
      # global exception handler.  let no exception bubble up this far!
      rescue_from Exception do |e|
